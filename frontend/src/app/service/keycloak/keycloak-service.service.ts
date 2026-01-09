@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import Keycloak from "keycloak-js";
-import {keycloakConfig} from "../keycloak.config";
+import {keycloakConfig} from "../../config/keycloak.config";
 
 
 @Injectable({

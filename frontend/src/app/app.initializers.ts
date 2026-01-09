@@ -1,5 +1,5 @@
 import {APP_INITIALIZER} from "@angular/core";
-import {KeycloakService} from "./service/keycloak-service.service";
+import {KeycloakService} from "./service/keycloak/keycloak-service.service";
 
 const kcFactory = (keycloak: KeycloakService) => {
   return () => keycloak.init()

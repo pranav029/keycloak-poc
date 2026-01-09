@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {RouterOutlet} from '@angular/router';
-import {KeycloakService} from "./service/keycloak-service.service";
+import {Router, RouterOutlet} from '@angular/router';
+import {KeycloakService} from "./service/keycloak/keycloak-service.service";
 
 @Component({
   selector: 'app-root',
@@ -12,10 +12,21 @@ import {KeycloakService} from "./service/keycloak-service.service";
 export class AppComponent {
   title = 'keycloakPoc';
 
-  constructor(private keycloakService: KeycloakService) {
+  constructor(
+    private keycloakService: KeycloakService,
+    private router: Router
+  ) {
   }
 
   protected logout() {
     this.keycloakService.logout().then(r => console.log("logged out."))
+  }
+
+  protected navigateToUser() {
+    this.router.navigate(['user']);
+  }
+
+  protected navigateToAdmin() {
+    this.router.navigate(['admin']);
   }
 }
