@@ -1,6 +1,6 @@
-import {Injectable} from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 import Keycloak from "keycloak-js";
-import {keycloakConfig} from "../../config/keycloak.config";
+import {getKeycloakConfig} from "../../config/keycloak.config";
 
 
 @Injectable({
@@ -11,12 +11,12 @@ export class KeycloakService {
 
   get keycloak(): Keycloak {
     if (!this._keycloak) {
-      this._keycloak = new Keycloak(keycloakConfig)
+      this._keycloak = new Keycloak(getKeycloakConfig(this.config))
     }
     return this._keycloak
   }
 
-  constructor() {
+  constructor(@Inject("APP_CONFIG") private config: any) {
   }
 
   async init() {

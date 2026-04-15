@@ -1,5 +1,6 @@
 package com.poc.keycloak;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.http.converter.autoconfigure.ClientHttpMessageConvertersCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,6 +21,8 @@ import java.util.stream.Collectors;
 @Configuration
 @EnableMethodSecurity
 public class SecurityConfig {
+    @Value("${poc.keycloak.client.id}")
+    private String keycloakClientId;
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http, CorsConfigurationSource corsConfigurationSource, ClientHttpMessageConvertersCustomizer clientConvertersCustomizer) throws Exception {
         http

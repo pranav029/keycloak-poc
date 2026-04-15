@@ -1,9 +1,10 @@
 import {environment} from "../../environments/environment";
 
-const keycloakConfig = {
-  url: environment.keycloakUrl,
-  realm: environment.keycloakRealm,
-  clientId: environment.keycloakClientId
-}
+const getKeycloakConfig = (config: any) => ({
+    url: config.keycloakUrl,
+    realm: config.keycloakRealm,
+    clientId: config.keycloakClientId
+  }
+)
 
-export {keycloakConfig}
+export {getKeycloakConfig}
