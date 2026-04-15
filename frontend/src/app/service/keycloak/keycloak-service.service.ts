@@ -20,11 +20,13 @@ export class KeycloakService {
   }
 
   async init() {
-    const authenticated = await this.keycloak.init({
+    await this.keycloak.init({
       onLoad: 'login-required'
+    }).then(async () => {
+      const user = await this.keycloak.loadUserInfo()
+      console.log(user)
     })
-    if (authenticated)
-      console.log(this.keycloak.tokenParsed)
+      .catch(() => console.log("login failed"))
   }
 
   login() {
