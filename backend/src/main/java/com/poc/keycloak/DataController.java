@@ -23,4 +23,9 @@ public class DataController {
     public String getAllAdminNames() {
         return List.of("X", "Y", "Z").toString();
     }
+
+    @GetMapping("/health")
+    public String checkHealth(){
+        return "Working Fine!!!!";
+    }
 }

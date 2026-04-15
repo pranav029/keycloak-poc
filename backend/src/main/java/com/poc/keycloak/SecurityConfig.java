@@ -31,6 +31,7 @@ public class SecurityConfig {
                 .formLogin(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                        .requestMatchers("/**/health").permitAll()
                         .anyRequest().authenticated()
                 )
                 .oauth2ResourceServer(auth -> {
