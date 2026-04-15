@@ -6,6 +6,10 @@ WORKDIR /app
 COPY build.gradle.kts settings.gradle.kts gradlew ./
 COPY gradle ./gradle
 
+# Make gradlew executable
+RUN chmod +x gradlew
+
+
 # Copy source code
 COPY src ./src
 
