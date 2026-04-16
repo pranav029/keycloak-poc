@@ -2,6 +2,7 @@ name: Keycloak Redeploy
 
 on:
   workflow_dispatch:
+  workflow_call:
 
 jobs:
   redeploy:
