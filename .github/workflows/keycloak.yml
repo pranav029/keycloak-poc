@@ -1,0 +1,12 @@
+name: Keycloak Redeploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  redeploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger Render Keycloak Deploy
+        run: curl -X POST ${{ secrets.RENDER_KEYCLOAK_HOOK }}

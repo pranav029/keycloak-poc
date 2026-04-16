@@ -1,0 +1,12 @@
+name: Backend Redeploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  redeploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger Render Backend Deploy
+        run: curl -X POST ${{ secrets.RENDER_BACKEND_HOOK }}
