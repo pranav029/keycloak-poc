@@ -1,4 +1,3 @@
-LABEL authors="pranavmani.tripathi"
 FROM quay.io/keycloak/keycloak:latest
 
 WORKDIR /opt/keycloak
