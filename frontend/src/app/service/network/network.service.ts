@@ -1,7 +1,6 @@
-import {Inject, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {environment} from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -9,16 +8,15 @@ import {environment} from "../../../environments/environment";
 export class NetworkService {
 
   constructor(
-    private httpClient: HttpClient,
-    @Inject("APP_CONFIG") private config: any
+    private httpClient: HttpClient
   ) {
   }
 
   getNames(): Observable<any> {
-    return this.httpClient.get(`${this.config.baseUrl}/api/names`, {responseType: 'text'})
+    return this.httpClient.get(`${window.__env.baseUrl}/api/names`, {responseType: 'text'})
   }
 
   getAdminName(): Observable<any> {
-    return this.httpClient.get(`${this.config.baseUrl}/api/admin/names`, {responseType: 'text'})
+    return this.httpClient.get(`${window.__env.baseUrl}/api/admin/names`, {responseType: 'text'})
   }
 }

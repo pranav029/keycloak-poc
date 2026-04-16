@@ -37,7 +37,7 @@ public class SecurityConfig {
                 .oauth2ResourceServer(auth -> {
                     auth.jwt((token -> token.jwtAuthenticationConverter(jwt -> {
                         var resourceAccess = new HashMap(jwt.getClaim("resource_access"));
-                        var roles = ((Map<String, List<String>>) resourceAccess.get("keycloak-poc")).get("roles");
+                        var roles = ((Map<String, List<String>>) resourceAccess.get(keycloakClientId)).get("roles");
                         var authorities = roles.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toSet());
                         return new JwtAuthenticationToken(jwt, authorities);
                     })));

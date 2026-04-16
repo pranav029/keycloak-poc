@@ -1,9 +1,9 @@
 import {environment} from "../../environments/environment";
 
-const getKeycloakConfig = (config: any) => ({
-    url: config.keycloakUrl,
-    realm: config.keycloakRealm,
-    clientId: config.keycloakClientId
+const getKeycloakConfig = () => ({
+    url: window.__env.keycloakUrl,
+    realm: window.__env.keycloakRealm,
+    clientId: window.__env.keycloakClientId
   }
 )
 
